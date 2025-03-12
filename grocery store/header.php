@@ -17,7 +17,7 @@ if(isset($message)){
 
    <div class="flex">
 
-      <a href="login.php" class="logo">SRI RAGHAVENDRA STORES<span>.</span></a>
+      <a href="admin_page.php" class="logo">SRI RAGHAVENDRA STORES<span>.</span></a>
 
       <nav class="navbar">
          <a href="home.php">home</a>
@@ -48,9 +48,13 @@ if(isset($message)){
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
          <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
-         <p><?= $fetch_profile['name']; ?></p>
+         <p>id: <?= $fetch_profile['id']; ?></p>
+         <p>name: <?= $fetch_profile['name']; ?></p>
          <a href="user_profile_update.php" class="btn">update profile</a>
          <a href="logout.php" class="delete-btn">logout</a>
+         <div class="flex-btn">
+         <a href="register.php" class="option-btn">new register?</a>
+         </div>
       </div>
 
    </div>

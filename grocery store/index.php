@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +22,7 @@
    <section class="home">
 
       <div class="content">
-         <span>SRI RAGHAVENDRA STORES</span>
+         <span>SRI RAGHAVENDRA STORES.</span>
          <h3>Reach For A Healthier You With Organic Foods</h3>
          <p>Whoever said money can't buy happiness didn't know where to shop</p>
          <a href="login.php" class="btn">Login Now</a>
@@ -41,34 +39,35 @@
    <div class="box-container">
 
       <div class="box">
-         <img src="images/images.jpeg" alt="">
-         <h3>Fertilizers</h3>
-         <p> Fertilisers are additional substances supplied to the crops to increase their productivity.</p>
+         <img src="images\veggies.jpg" alt="">
+         <h3>Vegetables</h3>
+         <p>it is usually herbaceous plant grown for an edible part that is usually eaten as part of a meal.</p>
       </div>
 
       <div class="box">
-         <img src="images/image2.png" alt="">
-         <h3>Eatable Items</h3>
-         <p>Eatable Items means edible items and drinks which are not furnished and they are ready for immediate consumption               .</p>
+         <img src="images\Fruits.jpg" alt="">
+         <h3>Fruits</h3>
+         <p>the sweet and fleshy product of a tree or other plant that contains seed and can be eaten.</p>
       </div>
 
       <div class="box">
-         <img src="images/image3.png" alt="">
+         <img src="images\snacks.jpg" alt="">
          <h3>Snacks</h3>
          <p>a small portion of food that is smaller than a regular meal, consumed between meals.</p>
       </div>
 
       <div class="box">
-         <img src="images/image4.jpeg" alt="">
+         <img src="images/grocery.jpg" alt="">
          <h3>Other Grocery</h3>
-         <p>A grocer is a shopkeeper who sells foods such as flour, sugar, and tinned foods.</p>
+         <p>a grocer is a shopkeeper who sells items such as grocery items, ration items and tinned.</p>
       </div>
-
    </div>
 
 </section>
 
-  
+<?php include 'footer.php'; ?>
+<script src="js/script.js"></script>
+
 
 </body>
 </html>

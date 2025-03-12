@@ -100,9 +100,9 @@ if(isset($_POST['add_to_cart'])){
    <section class="home">
 
       <div class="content">
-         <span>SRI RAGHAVENDRA STORES</span>
+         <span>SRI RAGHAVENDRA STORES.</span>
          <h3>Reach For A Healthier You With Organic Foods</h3>
-         <p>Whoever said money can't buy happiness didn't know where to shop</p>
+         <p>Whoever said money can't buy happiness didn't know where to shop.</p>
          <a href="about.php" class="btn">about us</a>
       </div>
 
@@ -117,38 +117,38 @@ if(isset($_POST['add_to_cart'])){
    <div class="box-container">
 
       <div class="box">
-         <img src="images/images.jpeg" alt="">
-         <h3>Fertilizers</h3>
-         <p> Fertilisers are additional substances supplied to the crops to increase their productivity.</p>
-         <a href="category.php?category=fruits" class="btn">Fertilizers</a>
+         <img src="images\veggies.jpg" alt="">
+         <h3>Vegetables</h3>
+         <p>it is usually herbaceous plant grown for an edible part that is usually eaten as part of a meal.</p>
+         <a href="category.php?category=vegetables" class="btn">vegetables</a>
       </div>
 
       <div class="box">
-         <img src="images/image2.png" alt="">
-         <h3>Eatable Items</h3>
-         <p>Eatable Items means edible items and drinks which are not furnished and they are ready for immediate consumption               .</p>
-         <a href="category.php?category=meat" class="btn">Eatable Items</a>
+         <img src="images\Fruits.jpg" alt="">
+         <h3>Fruits</h3>
+         <p>the sweet and fleshy product of a tree or other plant that contains seed and can be eaten.</p>
+         <a href="category.php?category=fruits" class="btn">fruits</a>
       </div>
 
       <div class="box">
-         <img src="images/image3.png" alt="">
+         <img src="images\snacks.jpg" alt="">
          <h3>Snacks</h3>
          <p>a small portion of food that is smaller than a regular meal, consumed between meals.</p>
-         <a href="category.php?category=vegitables" class="btn">Snacks</a>
+         <a href="category.php?category=snacks" class="btn">snacks</a>
       </div>
 
       <div class="box">
-         <img src="images/image4.jpeg" alt="">
+         <img src="images\grocery.jpg" alt="">
          <h3>Other Grocery</h3>
-         <p>A grocer is a shopkeeper who sells foods such as flour, sugar, and tinned foods.</p>
-         <a href="category.php?category=fish" class="btn">Other Grocery</a>
+         <p>A grocer is a shopkeeper who sells items such as grocery, ration items and tinned foods.</p>
+         <a href="category.php?category=Other Grocery" class="btn">Other Grocery</a>
       </div>
 
    </div>
 
 </section>
 
-<section class="products">
+<!-- <section class="products">
 
    <h1 class="title">latest products</h1>
 
@@ -161,7 +161,7 @@ if(isset($_POST['add_to_cart'])){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" class="box" method="POST">
-      <div class="price">Rs<span><?= $fetch_products['price']; ?></span>/-</div>
+      <div class="price">Rs.<span><?= $fetch_products['price']; ?></span>/-</div>
       <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
       <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
@@ -182,7 +182,7 @@ if(isset($_POST['add_to_cart'])){
 
    </div>
 
-</section>
+</section> -->
 
 
 

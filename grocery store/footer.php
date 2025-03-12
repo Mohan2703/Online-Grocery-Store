@@ -20,16 +20,15 @@
 
       <div class="box">
          <h3>contact info</h3>
-         <p> <i class="fas fa-phone"></i> 9945483153 </p>
-         <p> <i class="fas fa-phone"></i> 8277204910</p>
-         <p> <i class="fas fa-envelope"></i> dineshks@gmail.com </p>
-         <p> <i class="fas fa-map-marker-alt"></i> kudurasthe town,sakleshpura taluk,hassan District 573123 </p>
+         <p> <i class="fas fa-calendar"></i> Everyday: 7am to 7pm </p>
+         <p> <i class="fas fa-phone"></i> +91 7019869357 ,  +91 9632820209</p>
+         <!-- <p> <i class="fas fa-phone"></i> +91 9632820209 </p> -->
+         <a href="mailto: raghavendra.stores0@gmail.com"> <i class="fas fa-envelope"></i> raghavendra.stores0@gmail.com </a>
+         <a href="https://maps.app.goo.gl/xEMee8PUa9Ztjx9R6"> <i class="fas fa-map-marker-alt"></i> #2/1, 9th main, 9th cross, 2nd block, Jayanagar, Bangalore-560011 </a>
       </div>
-
-
 
    </section>
 
-   <p class="credit"> &copy; copyright @ <?= date('Y'); ?> by <span>Dinesh K S</span> | all rights reserved! </p>
+   <p class="credit"> &copy; copyright @ <?= date('Y'); ?> by <span>Sri Raghavendra Stores</span> | all rights reserved!® </p>
 
 </footer>

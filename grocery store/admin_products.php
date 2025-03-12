@@ -20,8 +20,6 @@ if(isset($_POST['add_product'])){
    $category = filter_var($category, FILTER_SANITIZE_STRING);
    $details = $_POST['details'];
    $details = filter_var($details, FILTER_SANITIZE_STRING);
-   $quantity=$_POST['quantity'];
-   $details=filter_var($quantity,FILTER_SANITIZE_STRING);
 
    $image = $_FILES['image']['name'];
    $image = filter_var($image, FILTER_SANITIZE_STRING);
@@ -36,8 +34,8 @@ if(isset($_POST['add_product'])){
       $message[] = 'product name already exist!';
    }else{
 
-      $insert_products = $conn->prepare("INSERT INTO `products`(name, category, details, price,quantity, image) VALUES(?,?,?,?,?,?)");
-      $insert_products->execute([$name, $category, $details, $price, $quantity,$image]);
+      $insert_products = $conn->prepare("INSERT INTO `products`(name, category, details, price, image) VALUES(?,?,?,?,?)");
+      $insert_products->execute([$name, $category, $details, $price, $image]);
 
       if($insert_products){
          if($image_size > 2000000){
@@ -102,11 +100,10 @@ if(isset($_GET['delete'])){
          <input type="text" name="name" class="box" required placeholder="enter product name">
          <select name="category" class="box" required>
             <option value="" selected disabled>select category</option>
-               <option value="Fertilizers">Fertilizers</option>
-               <option value="Eatable">Eatable Items</option>
-               <option value="Snacks">Snacks</option>
+               <option value="vegetables">vegetables</option>
+               <option value="fruits">fruits</option>
+               <option value="snacks">snacks</option>
                <option value="Other Grocery">Other Grocery</option>
-               <input type="number" min="0" name="quantity" class="box" required placeholder="enter product quantity">
          </select>
          </div>
          <div class="inputBox">
@@ -133,7 +130,7 @@ if(isset($_GET['delete'])){
          while($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)){  
    ?>
    <div class="box">
-      <div class="price">Rs<?= $fetch_products['price']; ?>/-</div>
+      <div class="price">Rs.<?= $fetch_products['price']; ?>/-</div>
       <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
       <div class="cat"><?= $fetch_products['category']; ?></div>

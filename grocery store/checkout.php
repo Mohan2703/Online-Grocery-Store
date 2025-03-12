@@ -20,6 +20,8 @@ if(isset($_POST['order'])){
    $email = filter_var($email, FILTER_SANITIZE_STRING);
    $method = $_POST['method'];
    $method = filter_var($method, FILTER_SANITIZE_STRING);
+   $method1 = $_POST['method1'];
+   $method1 = filter_var($method1, FILTER_SANITIZE_STRING);
    $address = 'flat no. '. $_POST['flat'] .' '. $_POST['street'] .' '. $_POST['city'] .' '. $_POST['state'] .' '. $_POST['country'] .' - '. $_POST['pin_code'];
    $address = filter_var($address, FILTER_SANITIZE_STRING);
    $placed_on = date('d-M-Y');
@@ -55,7 +57,7 @@ if(isset($_POST['order'])){
       $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $cart_total, $placed_on]);
       $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
       $delete_cart->execute([$user_id]);
-      $message[] = 'payment Successful for'.'  '.'Rs'.$cart_total.'  '.'and order placed successfully!';
+      $message[] = 'order placed successfully! and will be contacted using phone number provided, once items are out for delivery';
    }
    
 
@@ -76,24 +78,13 @@ if(isset($_POST['order'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-   <script>
-function validateForm() {
-  var methodInput = document.getElementById("method").value;
-  var confirmMethodInput = document.getElementById("confirm_method").value;
-
-  if (methodInput !== confirmMethodInput) {
-    alert("Card details do not match. Please confirm your card details again.");
-    return false;
-  }
-}
-</script>
+   
 
 <style>
 .inputBox {
   position: relative;
 }
-
-.inputBox input[id="method"] {
+.inputBox input[id="method1"] {
   padding-left: 40px; /* Adjust this value to match the size of your logo */
   background-image: url('images/card.png'); /* Replace with the actual path to your logo */
   background-repeat: no-repeat;
@@ -105,8 +96,15 @@ function validateForm() {
 <body>
    
 <?php include 'header.php'; ?>
-
+<h1>
+   <a href="cart.php"
+		class="nd">
+		<img src="images/back.PNG" 
+		width="60px">
+	</a>
+   </h1>
 <section class="display-orders">
+
 
    <?php
       $cart_grand_total = 0;
@@ -130,14 +128,13 @@ function validateForm() {
 
             }
    ?>
-   <div class="grand-total">grand total : <span>Rs<?= $cart_grand_total; ?>/-</span></div>
+   <div class="grand-total">grand total : <span>Rs.<?= $cart_grand_total; ?>/-</span></div>
+ </div>
+         
 </section>
 
 <section class="checkout-orders">
    
-
-   
-
 <form action="" method="POST" onsubmit="return validateForm();">
       <div class="flex">
          <div class="inputBox">
@@ -146,35 +143,27 @@ function validateForm() {
          </div>
          <div class="inputBox">
             <span>your number :</span>
-            <input type="text" name="number" placeholder="enter your Number (up to 10 characters)" class="box" required maxlength="10">
+            <input type="tel" name="number" placeholder="provide exact phone.no used for contacting at time of delivery." class="box" required minlength="10" maxlength="10">
          </div>
          <div class="inputBox">
             <span>your email :</span>
-            <input type="email" name="email" placeholder="enter your email" class="box" required>
+            <input type="email" name="email" placeholder="example@gmail.com" class="box" required>
          </div>
          <div class="inputBox">
-            <span>Credit Card/Debit Card Number</span>
-            <input type="text" name="method" id="method" placeholder="enter Card Details" class="box" maxlength="16" required>
-<input type="text" name="confirm_method" id="method" placeholder="Confirm Card Details" class="box" maxlength="16" required>
-<input type="text" name="cvc" placeholder="enter CVC" class="box" maxlength="3" required>
-
-
+            <span>address :</span>
+            <input type="text" name="flat" placeholder="e.g.full adress" class="box" required>
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
-            <input type="text" name="flat" placeholder="e.g. flat number" class="box" required>
-         </div>
-         <div class="inputBox">
-            <span>address line 02 :</span>
-            <input type="text" name="street" placeholder="e.g. street name" class="box" required>
+            <span>landmark :</span>
+            <input type="text" name="street" placeholder="e.g. landmark" class="box" required>
          </div>
          <div class="inputBox">
             <span>city :</span>
-            <input type="text" name="city" placeholder="e.g. mumbai" class="box" required>
+            <input type="text" name="city" placeholder="e.g. Bengaluru" class="box" required>
          </div>
          <div class="inputBox">
             <span>state :</span>
-            <input type="text" name="state" placeholder="e.g. maharashtra" class="box" required>
+            <input type="text" name="state" placeholder="e.g. Karnataka" class="box" required>
          </div>
          <div class="inputBox">
             <span>country :</span>
@@ -184,19 +173,27 @@ function validateForm() {
             <span>pin code :</span>
             <input type="number" min="0" name="pin_code" placeholder="e.g. 123456" class="box" required>
          </div>
+
+         <div class="inputBox">
+            <span>payment method :</span>
+            <select name="method" class="box" required>
+               <option value="">--Select Payment type---</option>
+               <option value="debit card">debit card</option>
+               <option value="credit card">credit card</option>
+            </select>
+            <input type="text" name="name" placeholder="enter name on Card" class="box" required>
+            <input type="tel" name="method1" placeholder="enter Card Number" class="box" minlength="16" maxlength="16" required>
+            <input type="tel" name="cvv" placeholder="enter CVV" class="box" minlength="3" maxlength="3" required>
+         </div>
       </div>
 
+
       <input type="submit" name="order" class="btn <?= ($cart_grand_total > 1)?'':'disabled'; ?>" value="place order">
+      <div class="box-container"><a href="shop.php" class="delete-btn <?= ($cart_grand_total < 1)?'':'disabled'; ?>">home</a> 
 
    </form>
 
 </section>
-
-
-
-
-
-
 
 
 <?php include 'footer.php'; ?>

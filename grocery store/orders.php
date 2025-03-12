@@ -74,7 +74,7 @@ if (!isset($user_id)) {
                         <p> address : <span><?= $fetch_orders['address']; ?></span> </p>
                         <p> payment method : <span><?= $fetch_orders['method']; ?></span> </p>
                         <p> your orders : <span><?= $fetch_orders['total_products']; ?></span> </p>
-                        <p> total price : <span>Rs<?= $fetch_orders['total_price']; ?>/-</span> </p>
+                        <p> total price : <span>Rs.<?= $fetch_orders['total_price']; ?>/-</span> </p>
                         <p> payment status : <span style="color:<?php if ($fetch_orders['payment_status'] == 'pending') { echo 'red'; } else { echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
                         <button class="print-btn" onclick="printOrder(<?= $fetch_orders['id']; ?>)">Print</button>
                     </div>
@@ -87,7 +87,6 @@ if (!isset($user_id)) {
         </div>
     </section>
 
-    <?php include 'footer.php'; ?>
 
     <script src="js/script.js"></script>
 </body>

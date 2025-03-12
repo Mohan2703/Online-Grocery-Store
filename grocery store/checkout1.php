@@ -19,8 +19,7 @@ if(isset($_POST['order'])){
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
    $method = $_POST['method'];
-   $method = filter_var($method, FILTER_SANITIZE_STRING);
-   $address = 'flat no. '. $_POST['flat'] .' '. $_POST['street'] .' '. $_POST['city'] .' '. $_POST['state'] .' '. $_POST['country'] .' - '. $_POST['pin_code'];
+   $method = filter_var($method, FILTER_SANITIZE_STRING);   $address = 'flat no. '. $_POST['flat'] .' '. $_POST['street'] .' '. $_POST['city'] .' '. $_POST['state'] .' '. $_POST['country'] .' - '. $_POST['pin_code'];
    $address = filter_var($address, FILTER_SANITIZE_STRING);
    $placed_on = date('d-M-Y');
 
@@ -51,7 +50,7 @@ if(isset($_POST['order'])){
       $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $cart_total, $placed_on]);
       $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
       $delete_cart->execute([$user_id]);
-      $message[] = 'order placed successfully! and you can take bill printout in your orders section';
+      $message[] = 'order placed successfully! and will be contacted using phone number provided, once items are out for delivery';
    }
 
 }
@@ -76,7 +75,7 @@ if(isset($_POST['order'])){
 <body>
    
 <?php include 'header.php'; ?>
-
+<a href="cart.php" class="nd"><img src="images/back.PNG" width="60px"></a>
 <section class="display-orders">
 
    <?php
@@ -94,15 +93,20 @@ if(isset($_POST['order'])){
    }else{
       echo '<p class="empty">your cart is empty!</p>';
    }
+   if($cart_grand_total<100)
+            {
+               echo '<p class="empty">Please buy above 100Rs</p>';
+
+            }
    ?>
-   <div class="grand-total">grand total : <span>Rs<?= $cart_grand_total; ?>/-</span></div>
+   <div class="grand-total">grand total : <span>Rs.<?= $cart_grand_total; ?>/-</span></div>
 </section>
 
 <section class="checkout-orders">
 
-   <form action="" method="POST">
+   <form action="" method="POST" onsubmit="return validateForm();">
 
-      <h3>place your order</h3>
+      <!-- <h3>place your order</h3> -->
 
       <div class="flex">
          <div class="inputBox">
@@ -111,32 +115,27 @@ if(isset($_POST['order'])){
          </div>
          <div class="inputBox">
             <span>your number :</span>
-            <input type="number" name="number" placeholder="enter your number" class="box" required>
+            <input type="tel" name="number" placeholder="provide exact phone.no used for contacting at time of delivery." class="box" maxlength="10", minlength="10" required>
          </div>
          <div class="inputBox">
             <span>your email :</span>
-            <input type="email" name="email" placeholder="enter your email" class="box" required>
+            <input type="email" name="email" placeholder="example@gmail.com" class="box" required>
          </div>
          <div class="inputBox">
-            <span>payment method:Cash On delivery</span>
-            <input type="text" name="method" placeholder="Cash On Delivery" class="box" readonly >
-
+            <span>address :</span>
+            <input type="text" name="flat" placeholder="e.g. adress" class="box" required>
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
-            <input type="text" name="flat" placeholder="e.g. flat number" class="box" required>
-         </div>
-         <div class="inputBox">
-            <span>address line 02 :</span>
-            <input type="text" name="street" placeholder="e.g. street name" class="box" required>
+            <span>landmark :</span>
+            <input type="text" name="street" placeholder="e.g. landmark" class="box" required>
          </div>
          <div class="inputBox">
             <span>city :</span>
-            <input type="text" name="city" placeholder="e.g. mumbai" class="box" required>
+            <input type="text" name="city" placeholder="e.g. Bengaluru" class="box" required>
          </div>
          <div class="inputBox">
             <span>state :</span>
-            <input type="text" name="state" placeholder="e.g. maharashtra" class="box" required>
+            <input type="text" name="state" placeholder="e.g. Karnataka" class="box" required>
          </div>
          <div class="inputBox">
             <span>country :</span>
@@ -146,9 +145,17 @@ if(isset($_POST['order'])){
             <span>pin code :</span>
             <input type="number" min="0" name="pin_code" placeholder="e.g. 123456" class="box" required>
          </div>
+         <div class="inputBox">
+            <span>payment method :</span>
+            <select name="method" class="box" required>
+               <option value="">--Select Payment type---</option>
+               <option value="cash on delivery">cash on delivery</option>
+               </select>
+         </div>
       </div>
 
       <input type="submit" name="order" class="btn <?= ($cart_grand_total > 1)?'':'disabled'; ?>" value="place order">
+      <div class="box-container"><a href="shop.php" class="delete-btn <?= ($cart_grand_total < 1)?'':'disabled'; ?>">home</a> 
 
    </form>
 

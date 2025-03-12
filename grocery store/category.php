@@ -96,7 +96,11 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'header.php'; ?>
 
 <section class="products">
-
+   <a href="shop.php"
+		class="nd">
+		<img src="images/back.PNG" 
+		width="60px">
+	</a>
    <h1 class="title">products categories</h1>
 
    <div class="box-container">
@@ -109,7 +113,7 @@ if(isset($_POST['add_to_cart'])){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" class="box" method="POST">
-      <div class="price">Rs<span><?= $fetch_products['price']; ?></span>/-</div>
+      <div class="price">Rs.<span><?= $fetch_products['price']; ?></span>/-</div>
       <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
       <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
@@ -138,7 +142,6 @@ if(isset($_POST['add_to_cart'])){
 
 
 
-<?php include 'footer.php'; ?>
 
 <script src="js/script.js"></script>
 

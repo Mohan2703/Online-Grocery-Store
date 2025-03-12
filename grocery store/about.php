@@ -37,22 +37,28 @@ if(!isset($user_id)){
 
       <div class="box">
          <img src="images/about-img-1.png" alt="">
-         <h3>why choose us?</h3>
-         <p>There are a number of reasons to do business with Consumer Fresh Produce. We provide the freshest, highest quality Fertilizers and Other Grocery Items for your daily needs.</p>
+         <h3>why choose us ?</h3>
+         <p>There are a number of reasons to do business with Consumer Fresh Produce. We provide the freshest, highest quality Grocery Items for your daily needs.</p>
          <a href="contact.php" class="btn">contact us</a>
       </div>
 
       <div class="box">
          <img src="images/about-img-2.png" alt="">
-         <h3>what we provide?</h3>
-         <p>Raghavendra Stores is another form of retailing, primarily focusing on selling grocery, along with fertilizers, such as urea or NPK, to the consumers.</p>
+         <h3>what we provide .</h3>
+         <p>Raghavendra Stores is another form of retailing, primarily focusing on selling Fruits, Vegetables, Snacks and other daily essentials to the consumers.</p>
          <a href="shop.php" class="btn">our shop</a>
+      </div>
+
+      <div class="box">
+         <img src="images/about-img-3.png" alt="">
+         <h3>free delivery !</h3>
+         <p>We provide free home delivery. we cover the cost of shipping your order to you, so you won't have to pay any additional fees for shipping.</p>
+         <a href="cart.php" class="btn">my cart</a>
       </div>
 
    </div>
 
 </section>
-<?php include 'footer.php'; ?>
 
 <script src="js/script.js"></script>
 

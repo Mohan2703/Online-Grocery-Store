@@ -127,7 +127,6 @@ if(isset($_POST['update_profile'])){
 
 
 
-<?php include 'footer.php'; ?>
 
 
 <script src="js/script.js"></script>

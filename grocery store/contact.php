@@ -60,7 +60,15 @@ if(isset($_POST['send'])){
 
 <section class="contact">
 
+   <h1>
+   <a href="about.php"
+		class="nd">
+		<img src="images/back.PNG" 
+		width="60px">
+	</a>
+   </h1>
    <h1 class="title">get in touch</h1>
+   
 
    <form action="" method="POST">
       <input type="text" name="name" class="box" required placeholder="enter your name">
@@ -71,13 +79,6 @@ if(isset($_POST['send'])){
    </form>
 
 </section>
-
-
-
-
-
-
-
 
 <?php include 'footer.php'; ?>
 

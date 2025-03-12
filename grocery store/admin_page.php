@@ -37,18 +37,31 @@ if(!isset($admin_id)){
 
    <div class="box-container">
 
+   <div class="box">
+      <?php
+         $select_products = $conn->prepare("SELECT * FROM `products`");
+         $select_products->execute();
+         $number_of_products = $select_products->rowCount();
+      ?>
+      <h3><?= $number_of_products; ?></h3>
+      <p>products added</p>
+      <a href="admin_products_view.php" class="btn">see products</a>
+      </div>
+
       <div class="box">
       <?php
          $total_pendings = 0;
          $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
          $select_pendings->execute(['pending']);
+         if($select_pendings->rowCount()>0)
+         {
          while($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)){
             $total_pendings += $fetch_pendings['total_price'];
+         }
          };
       ?>
-      <h3>Rs<?= $total_pendings; ?>/-</h3>
-      <p>total pendings</p>
-      <a href="admin_orders.php" class="btn">see orders</a>
+      <h3>Rs.<?= $total_pendings; ?>/</h3>
+      <p>pendings orders</p>
       </div>
 
       <div class="box">
@@ -56,14 +69,16 @@ if(!isset($admin_id)){
          $total_completed = 0;
          $select_completed = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
          $select_completed->execute(['completed']);
+         if($select_completed->rowCount()>0)
+         {
          while($fetch_completed = $select_completed->fetch(PDO::FETCH_ASSOC)){
             $total_completed += $fetch_completed['total_price'];
-         };
+         }   
+      };
       ?>
-      <h3>Rs<?= $total_completed; ?>/-</h3>
+      <h3>Rs.<?= $total_completed; ?>/-</h3>
       <p>completed orders</p>
-      <a href="admin_orders.php" class="btn">see orders</a>
-      </div>
+         </div>
 
       <div class="box">
       <?php
@@ -72,41 +87,8 @@ if(!isset($admin_id)){
          $number_of_orders = $select_orders->rowCount();
       ?>
       <h3><?= $number_of_orders; ?></h3>
-      <p>orders placed</p>
+      <p>total orders placed</p>
       <a href="admin_orders.php" class="btn">see orders</a>
-      </div>
-
-      <div class="box">
-      <?php
-         $select_products = $conn->prepare("SELECT * FROM `products`");
-         $select_products->execute();
-         $number_of_products = $select_products->rowCount();
-      ?>
-      <h3><?= $number_of_products; ?></h3>
-      <p>products added</p>
-      <a href="admin_products.php" class="btn">see products</a>
-      </div>
-
-      <div class="box">
-      <?php
-         $select_users = $conn->prepare("SELECT * FROM `users` WHERE user_type = ?");
-         $select_users->execute(['user']);
-         $number_of_users = $select_users->rowCount();
-      ?>
-      <h3><?= $number_of_users; ?></h3>
-      <p>total users</p>
-      <a href="admin_users.php" class="btn">see accounts</a>
-      </div>
-
-      <div class="box">
-      <?php
-         $select_admins = $conn->prepare("SELECT * FROM `users` WHERE user_type = ?");
-         $select_admins->execute(['admin']);
-         $number_of_admins = $select_admins->rowCount();
-      ?>
-      <h3><?= $number_of_admins; ?></h3>
-      <p>total admins</p>
-      <a href="admin_users.php" class="btn">see accounts</a>
       </div>
 
       <div class="box">
@@ -122,13 +104,33 @@ if(!isset($admin_id)){
 
       <div class="box">
       <?php
+         $select_users = $conn->prepare("SELECT * FROM `users` WHERE user_type = ?");
+         $select_users->execute(['user']);
+         $number_of_users = $select_users->rowCount();
+      ?>
+      <h3><?= $number_of_users; ?></h3>
+      <p>total users</p>
+      </div>
+
+      <div class="box">
+      <?php
+         $select_admins = $conn->prepare("SELECT * FROM `users` WHERE user_type = ?");
+         $select_admins->execute(['admin']);
+         $number_of_admins = $select_admins->rowCount();
+      ?>
+      <h3><?= $number_of_admins; ?></h3>
+      <p>total admins</p>
+      </div>
+
+      <div class="box">
+      <?php
          $select_messages = $conn->prepare("SELECT * FROM `message`");
          $select_messages->execute();
          $number_of_messages = $select_messages->rowCount();
       ?>
       <h3><?= $number_of_messages; ?></h3>
-      <p>total messages</p>
-      <a href="admin_contacts.php" class="btn">see messages</a>
+      <p>total queries</p>
+      <a href="admin_contacts.php" class="btn">see queries</a>
       </div>
 
    </div>

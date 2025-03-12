@@ -41,7 +41,11 @@ if(isset($_GET['delete'])){
 <?php include 'admin_header.php'; ?>
 
 <section class="user-accounts">
-
+<a href="admin_page.php"
+		class="nd">
+		<img src="images/back.PNG" 
+		width="60px">
+	</a>
    <h1 class="title">user accounts</h1>
 
    <div class="box-container">
