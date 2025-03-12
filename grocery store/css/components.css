@@ -8,6 +8,19 @@
    --light-color:#474545;
    --white:#fff;
    --light-bg:#dfd9d9;
+   --dodgerblue:DodgerBlue;
+   --darkblack:#000000;
+   --aliceblue:AliceBlue;
+   --antiquewhite:AntiqueWhite;
+   --brown:Brown;
+   --olive:Olive;
+   --paleturquoise:PaleTurquoise;
+   --silver:Silver;
+   --powderblue:PowderBlue;
+   --midnightblue:MidnightBlue;
+   --darkslategray:#2F4F4F;
+   --lavender:#E6E6FA;
+   --blanchedalmond:blanchedalmond;
    --color1:rgb(3, 252, 173);
    --border:.2rem solid var(--black);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
@@ -19,7 +32,9 @@
    box-sizing: border-box;
    outline: none; border:none;
    text-decoration: none;
-   color:var(--black);
+   /* color:var(--black); */
+   color: white;
+   scroll-behavior: smooth;
 }
 
 *::selection{
@@ -41,7 +56,9 @@
 }
 
 body{
-   background-color: var(--light-bg);
+   background: url(../images/bg.jpg); 
+   background-repeat: no-repeat;
+   background-size:cover;
    /* padding-bottom: 6.5rem; */
 }
 
@@ -80,21 +97,25 @@ section{
 }
 
 .btn{
-   background-color: var(--color1);
+   background-color: darkgreen;
 }
 
 .delete-btn{
-   background-color: var(--red);
+   background-color: rgb(224, 104, 104);
 }
 
 .option-btn{
-   background-color: var(--orange);
+   background-color: rgb(44, 116, 139);
 }
 
-.btn:hover,
-.delete-btn:hover,
+.btn:hover{
+   background-color: rgba(8, 163, 8, 0.957);
+}
+.delete-btn:hover{
+   background-color:red;
+}
 .option-btn:hover{
-   background-color: var(--black);
+   background-color: midnightblue;
 }
 
 .flex-btn{
@@ -110,28 +131,29 @@ section{
 .title{
    text-align: center;
    margin-bottom: 2rem;
+   text-decoration: underline;
    text-transform: uppercase;
-   color:var(--black);
+   color:darkorange;
    font-size: 3.5rem;
 }
 
 .message{
    position: sticky;
    top:0;
-   max-width: 1200px;
+   max-width: 1600px;
    margin:0 auto;
-   background-color: var(--light-bg);
+   background-color: var(--darkblack);
    padding:2rem;
    display: flex;
-   align-items: center;
-   justify-content: space-between;
+   align-items: stretch;
+   justify-content: center;
    gap:1.5rem;
    z-index: 10000;
 }
 
 .message span{
    font-size: 2rem;
-   color:var(--black);
+   color:chocolate;
 }
 
 .message i{
@@ -141,7 +163,7 @@ section{
 }
 
 .message i:hover{
-   color:var(--black);
+   color:var(--green);
 }
 
 .empty{
@@ -163,6 +185,13 @@ section{
 }
 
 .form-container{
+   /* background-color: brown; */
+   background: url(../images/loginbg.jpg);
+   background-size: cover;
+   max-width: 100%;
+   height: auto;
+   background-repeat: no-repeat;
+   background-position: center;
    min-height: 100vh;
    display: flex;
    align-items: center;
@@ -171,7 +200,7 @@ section{
 
 .form-container form{
    width: 50rem;
-   background-color: var(--white);
+   background-color: var(--darkblack);
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    border:var(--border);
@@ -181,7 +210,7 @@ section{
 
 .form-container form h3{
    font-size: 3rem;
-   color:var(--black);
+   color:var(--white);
    margin-bottom: 1rem;
    text-transform: uppercase;
 }
@@ -193,14 +222,14 @@ section{
    border:var(--border);
    padding:1.2rem 1.4rem;
    font-size: 1.8rem;
-   color:var(--black);
-   background-color: var(--light-bg);
+   color:var(--darkblack);
+   background-color: var(--white);
 }
 
 .form-container form p{
    margin-top: 2rem;
    font-size: 2.2rem;
-   color:var(--light-color);
+   color:var(--white);
 }
 
 .form-container form p a{
@@ -212,8 +241,8 @@ section{
 }
 
 .header{
-   background: var(--white);
-   position: sticky;
+   background-color: var(--darkblack);
+      position: sticky;
    top:0; left:0; right:0;
    z-index: 1000;
    box-shadow: var(--box-shadow);
@@ -231,7 +260,7 @@ section{
 
 .header .flex .logo{
    font-size: 2.5rem;
-   color:var(--black);
+   color:var(--white);
 }
 
 .header .flex .logo span{
@@ -241,33 +270,34 @@ section{
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:darkorange
+   ;
 }
 
 .header .flex .navbar a:hover{
    text-decoration: underline;
-   color:var(--red);
+   color:var(--green);
 }
 
 .header .flex .icons > *{
    font-size: 2.5rem;
-   color:var(--light-color);
+   color:var(--white);
    cursor: pointer;
    margin-left: 1.5rem;
 }
 
 .header .flex .icons > *:hover{
-   color:var(--green);
+   color:lightgreen;
 }
 
 .header .flex .icons a span,
 .header .flex .icons a i{
-   color:var(--light-color);
+   color:var(--white);
 }
 
 .header .flex .icons a:hover span,
 .header .flex .icons a:hover i{
-   color:var(--green);
+   color:lightcoral;
 }
 
 .header .flex .icons a span{
@@ -280,14 +310,14 @@ section{
 
 .header .flex .profile{
    position: absolute;
-   top:120%; right:2rem;
+   top:100%; right:2rem;
    box-shadow: var(--box-shadow);
    border:var(--border);
    border-radius: .5rem;
    padding:2rem;
    text-align: center;
-   background-color: var(--white);
-   width: 33rem;
+   background-color: var(--darkblack);
+   width: 30rem;
    display: none;
    animation: fadeIn .2s linear;
 }
@@ -307,13 +337,17 @@ section{
 .header .flex .profile p{
    padding:.5rem 0;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--white);
 }
 
 .update-profile form{
-   max-width: 70rem;
+   max-width: 60rem;
    margin: 0 auto;
-   background-color: var(--white);
+   background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to change the transparency */
+   border-radius: 10px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(10px);
+   /* background-color: var(--white); */
    box-shadow: var(--box-shadow);
    border:var(--border);
    border-radius: .5rem;
@@ -344,22 +378,22 @@ section{
    display: block;
    padding-top: 1rem;
    font-size: 1.8rem;
-   color:var(--light-color);
+   color:white;
 }
 
 .update-profile form .inputBox .box{
    width: 100%;
    padding:1.2rem 1.4rem;
    font-size: 1.8rem;
-   color:var(--black);
+   color:black;
    border:var(--border);
    border-radius: .5rem;
    margin:1rem 0;
-   background-color: var(--light-bg);
+   background-color: white;
 }
 
 .footer{
-   background-color: var(--white);
+   background-color: white;
 }
 
 .footer .box-container{
@@ -396,6 +430,7 @@ section{
 }
 
 .footer .credit{
+   background-color: var(--darkblack);
    margin-top: 2rem;
    padding: 2rem 1.5rem;
    padding-bottom: 2.5rem;
@@ -403,7 +438,7 @@ section{
    border-top: var(--border);
    text-align: center;
    font-size: 2rem;
-   color:var(--black);
+   color:var(--white);
 }
 
 .footer .credit span{
