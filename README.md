@@ -1,3 +1,3 @@
 # Online Grocery Store
 
-## Project Link - <a href>https://grocery.infinityfreeapp.com/<a/>
+## Project - <a href = "https://grocery.infinityfreeapp.com/"> Link <a/>
